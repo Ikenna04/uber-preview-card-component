@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* || COLORS  */
+  --bright-orange: hsl(31, 77%, 52%);
+  --dark-cyan: hsl(184, 100%, 22%);
+  --very-dark-cyan: hsl(179, 100%, 13%);
+  --transparent-white: hsla(0, 0%, 100%, 0.75);
+  --very-light-gray: hsl(0, 0%, 95%);
+
+  /* || FONTS  */
+  --font-lex: 400 15px "Lexend Deca";
+  --font-big: 700 40px "Big Shoulders Display";
+}
+
+body {
+  background-color: var(--very-light-gray);
+  font: var(--font-lex);
+  color: var(--transparent-white);
+  min-height: 100vh;
+}
+
+.card {
+  width: 921px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  border-radius: 15px;
+}
+
+.card :is(.sedan, .suv, .lux) {
+  padding: 48px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sedan {
+  background-color: var(--bright-orange);
+  border-radius: 12px 0 0 12px;
+}
+
+.suv {
+  background-color: var(--dark-cyan);
+}
+
+.lux {
+  background-color: var(--very-dark-cyan);
+  border-radius: 0 12px 12px 0;
+}
+
+h1 {
+  margin: 40px 0 32px;
+  font: var(--font-big);
+  color: var(--very-light-gray);
+  text-transform: uppercase;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.btn {
+  width: 150px;
+  padding: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-transform: capitalize;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 48px;
+  background-color: var(--very-light-gray);
+  border-radius: 50px;
+}
+
+.sedan .btn {
+  color: var(--bright-orange);
+}
+
+.suv .btn {
+  color: var(--dark-cyan);
+}
+
+.lux .btn {
+  color: var(--very-dark-cyan);
+}
+
+.btn:hover {
+  border: 2px solid var(--very-light-gray);
+  background-color: transparent;
+}
+
+:is(.sedan, .suv, .lux) .btn:hover {
+  color: var(--very-light-gray);
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    width: 327px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .card :is(.sedan, .suv, .lux) {
+    height: 442px;
+    width: auto;
+  }
+
+  .sedan {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .lux {
+    border-radius: 0 0 12px 12px;
+  }
+}
